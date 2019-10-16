@@ -1,9 +1,15 @@
 const pickPeaks = arrayInput => {
-  if (arrayInput.length < 4) {
-    return { pos: [1], peaks: [2] };
-  } else {
-    return { pos: [3], peaks: [5] };
-  }
+  let result = {
+    pos: [],
+    peaks: []
+  };
+  arrayInput.forEach((number, index) => {
+    if (number === Math.max(...arrayInput)) {
+      result["pos"].push(index);
+      result["peaks"].push(number);
+    }
+  });
+  return result;
 };
 
 module.exports = pickPeaks;
