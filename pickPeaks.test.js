@@ -17,6 +17,7 @@ describe("pickPeaks", () => {
       peaks: [3]
     });
   });
+
   it("returns two peaks and there positions when there are two", () => {
     expect(pickPeaks([3, 2, 3, 6, 4, 1, 2, 3, 2, 1, 2, 3])).toEqual({
       pos: [3, 7],
@@ -26,5 +27,9 @@ describe("pickPeaks", () => {
       pos: [2],
       peaks: [3]
     });
+  });
+
+  it("returns handles peaks where there are muliples of the same number in the peak", () => {
+    expect(pickPeaks([1, 2, 2, 2, 1])).toEqual({ pos: [1], peaks: [2] });
   });
 });
